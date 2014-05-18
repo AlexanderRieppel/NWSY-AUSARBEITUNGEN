@@ -6,38 +6,66 @@
 \usepackage{tabu}
 \usepackage{graphicx}
 \usepackage{lmodern}
+\usepackage{hyperref}
 
 \begin{document}
 
 
 %\titlehead{Kopf} %Optionale Kopfzeile
-\author{Autor A \and Autor B} %Zwei Autoren
-\title{ Titel } %Titel/Thema
-\subject{VSDB} %Fach
-%\subtitle{ } %Genaueres Thema, Optional
+\author{Alexander Rieppel} %Zwei Autoren
+\title{Scripting auf Routern} %Titel/Thema
+\subject{NWSY} %Fach
+\subtitle{Ausarbeitung} %Genaueres Thema, Optional
 \date{\today} %Datum
 \publishers{5AHITT} %Klasse
 
 \maketitle
 \tableofcontents
 
+\chapter{Scripting allgemein}
+\section{Was hei"st Scripting?}
+Scripting wird meist unter Verwendung von so genannten Skript-Sprachen betrieben. Genauer beschrieben handelt es sich dabei um Programmiersprachen die das Erstellen von Skripts erm"oglichen. Skripts sind Programme die in einer Laufzeitumgebung interpretiert werden. Das heißt, dass die Laufzeitumgebung Befehle erkennt die Befehl für Befehl ausgef"uhrt werden.  Dies k"onnte analog hierzu nat"urlich auch von einem Menschen erledigt werden der jeden Befehl einzeln in die Kommandozeile eintippt. Da dies allerdings f"ur wiederkehrende Prozeduren sehr aufwendig und zeitraubend ist, gibt es Skripts die diese Vorg"ange automatisieren k"onnen. Scripting findet in zahlreichen verschiedenen Umgebungen Anwendung, wie Software Applikationen, Webseiten in einem Web-Browser, in der Kommandozeile eines Betriebssystems und auch in Embedded Systems. Skript-Sprachen werden auch oft als "'very high-level"' Programmiersprache bezeichnet, da sie sich auf einem hohen Abstraktionslevel befinden und meist f"ur die einfache Bedienung von bestimmten Komponenten verantwortlich sind.\\\\Mit dem Begriff Skript-Sprache wird ebenfalls oft auf die sogenannten dynamischen high-level Mehrzweck-Sprachen verwiesen. Unter diesen Begriff fallen beispielsweise Sprachen wie Perl, TCL und Python, wo ein Skript meist ein kleines Programm (bis zu wenigen tausend Zeilen Code) darstellt.\\\\Viele dieser Sprachen wurden urspr"unglich f"ur die Verwendung in spezifischen Umgebungen entwickelt und erst sp"ater als portable dom"anenspezifische oder Mehrzweck-Sprache konzipiert. Das Spektrum der Skript-Sprachen reicht von sehr kleinen und hoch dom"anenspezifischen Sprachen bis hin zu Mehrzweck-Programmiersprachen die f"urs Scripting verwendet werden.\\\\ Im Prinzip kann allerdings jede Sprache f"urs Scripting verwendet werden. Offiziell kann gesagt werden, dass es immer von der Verwendung der jeweiligen Sprache abh"angt und genauer wie die Sprache f"ur bestimmte Aufgaben eingesetzt wird. Deshalb ist es nicht ohne weiteres gekl"art welche Sprachen als Skript-Sprache angesehen werden k"onnen und welche nicht. Generell sind allerdings viele Sprachen nicht f"ur den Einsatz als Skript-Sprache ausgelegt und folglich auch sehr selten als solche in Verwendung. Typischerweise sind Skript-Sprachen so ausgelegt, dass diese eine relativ simple Syntax und Semantik besitzen. Als Beispiel ist es nicht g"angig die Programmiersprache Java als Skript-Sprache zu verwenden, da sie eine lange Syntax und restriktive Regeln, welche Klasse in welchen Dateien liegt, besitzt. Im Gegensatz dazu steht bspw. Python wo es einfach m"oglich ist einige Funktionen in einer Datei kurz zu definieren. Eine Skript-Sprache wird normalerweise aus Sourcecode zu Bytecode interpretiert. Skript-Sprachen sind im eigentlichen Sinne f"ur den Endnutzer eines Programms konzipiert, damit kleine Programme selbst entwickelt werden k"onnen, ohne die verschiedenen Datentypen und das Speichermanagement beachten zu m"ussen. 
+\section{Typen von Skript-Sprachen}
+\subsection{Glue Languages}
+Eine "'glue language"' ist eine normalerweise interpretierte Skript-Sprache welche daf"ur designed und konzipiert wurde um "'glue code"' zu schreiben. Sie sind in erster Linie n"utzlich f"ur:
+\begin{itemize}
+\item eigene Befehle f"ur eine Kommandozeile
+\item kleinere Programme (als diese die besser in einer kompilierten Sprache entwickelt werden)
+\item "'Wrapper"' Programme f"ur Anwendungen, wie bspw. ein Batch-File, dass Dateien innerhalb eines Betriebssystems verschiebt oder bearbeitet
+\item Skripts die sich oft ändern
+\item schnell entwickelte Prototypen einer Softwarel"osung, die sp"ater in einer anderen, normalerweise kompilierten, Sprache umgesetzt werden
+\end{itemize}
+Glue Language Beispiele:
 
-\chapter{Aufgabenstellung}
-	
-\chapter{Designüberlegungen}
-	
-\chapter{Arbeitsaufteilung}
-	\tabulinesep = 4pt
-	\begin{tabu}  {|[2pt]X[2.5,c] |[1pt] X[4,c] |[1pt]X[1.3,c]|[1pt]X[c]|[2pt]}
-		\tabucline[2pt]{-}
-		Name & Arbeitssegment & Time Estimated & Time Spent\\\tabucline[2pt]{-}
-		
-		Walter Klaus & GUI Zeug machen und so & 5h & 10h\\\tabucline[1pt]{-}
-		Reiner Frank & Datenbanken ausblubbern& 100h & 5h\\\tabucline[2pt]{-}
-		Gesamt && 105h & 15h\\\tabucline[2pt]{-}
-	\end{tabu}	
-\chapter{Arbeitsdurchführung}
-\chapter{Testbericht}
-\chapter{Quellen}
+\begin{itemize}
+\item Erlang
+\item Unix Shell scripts (ksh, csh, bash, sh und andere)
+\item Windows PowerShell
+\item ecl
+\item DCL
+\item Scheme
+\item JCL
+\item m4
+\item VBScript
+\item JScript und JavaScript
+\item Apple Script
+\item LUA
+\item Python
+\item TCL
+\item Ruby
+\item Perl
+\item PHP
+\item Pure
+\item REXX
+\item XSLT
+\end{itemize}
 
+\chapter{Scripting auf Routern}
+\section{Nutzen}
+
+\section{M"oglichkeiten}
+	
+\section{Marktanalyse und Produkte}
+	
+\bibliography{ref}
 \end{document}
