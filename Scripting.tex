@@ -7,6 +7,8 @@
 \usepackage{graphicx}
 \usepackage{lmodern}
 \usepackage{hyperref}
+\usepackage{listings}
+\usepackage{float}
 
 \begin{document}
 
@@ -21,18 +23,20 @@
 
 \maketitle
 \tableofcontents
+\bibliographystyle{alphadin}
 
-\chapter{Scripting allgemein}
+\chapter{Einf"uhrung}
 \section{Was hei"st Scripting?}
-Scripting wird meist unter Verwendung von so genannten Skript-Sprachen betrieben. Genauer beschrieben handelt es sich dabei um Programmiersprachen die das Erstellen von Skripts erm"oglichen. Skripts sind Programme die in einer Laufzeitumgebung interpretiert werden. Das heißt, dass die Laufzeitumgebung Befehle erkennt die Befehl für Befehl ausgef"uhrt werden.  Dies k"onnte analog hierzu nat"urlich auch von einem Menschen erledigt werden der jeden Befehl einzeln in die Kommandozeile eintippt. Da dies allerdings f"ur wiederkehrende Prozeduren sehr aufwendig und zeitraubend ist, gibt es Skripts die diese Vorg"ange automatisieren k"onnen. Scripting findet in zahlreichen verschiedenen Umgebungen Anwendung, wie Software Applikationen, Webseiten in einem Web-Browser, in der Kommandozeile eines Betriebssystems und auch in Embedded Systems. Skript-Sprachen werden auch oft als "'very high-level"' Programmiersprache bezeichnet, da sie sich auf einem hohen Abstraktionslevel befinden und meist f"ur die einfache Bedienung von bestimmten Komponenten verantwortlich sind.\\\\Mit dem Begriff Skript-Sprache wird ebenfalls oft auf die sogenannten dynamischen high-level Mehrzweck-Sprachen verwiesen. Unter diesen Begriff fallen beispielsweise Sprachen wie Perl, TCL und Python, wo ein Skript meist ein kleines Programm (bis zu wenigen tausend Zeilen Code) darstellt.\\\\Viele dieser Sprachen wurden urspr"unglich f"ur die Verwendung in spezifischen Umgebungen entwickelt und erst sp"ater als portable dom"anenspezifische oder Mehrzweck-Sprache konzipiert. Das Spektrum der Skript-Sprachen reicht von sehr kleinen und hoch dom"anenspezifischen Sprachen bis hin zu Mehrzweck-Programmiersprachen die f"urs Scripting verwendet werden.\\\\ Im Prinzip kann allerdings jede Sprache f"urs Scripting verwendet werden. Offiziell kann gesagt werden, dass es immer von der Verwendung der jeweiligen Sprache abh"angt und genauer wie die Sprache f"ur bestimmte Aufgaben eingesetzt wird. Deshalb ist es nicht ohne weiteres gekl"art welche Sprachen als Skript-Sprache angesehen werden k"onnen und welche nicht. Generell sind allerdings viele Sprachen nicht f"ur den Einsatz als Skript-Sprache ausgelegt und folglich auch sehr selten als solche in Verwendung. Typischerweise sind Skript-Sprachen so ausgelegt, dass diese eine relativ simple Syntax und Semantik besitzen. Als Beispiel ist es nicht g"angig die Programmiersprache Java als Skript-Sprache zu verwenden, da sie eine lange Syntax und restriktive Regeln, welche Klasse in welchen Dateien liegt, besitzt. Im Gegensatz dazu steht bspw. Python wo es einfach m"oglich ist einige Funktionen in einer Datei kurz zu definieren. Eine Skript-Sprache wird normalerweise aus Sourcecode zu Bytecode interpretiert. Skript-Sprachen sind im eigentlichen Sinne f"ur den Endnutzer eines Programms konzipiert, damit kleine Programme selbst entwickelt werden k"onnen, ohne die verschiedenen Datentypen und das Speichermanagement beachten zu m"ussen. 
-\section{Typen von Skript-Sprachen}
+Scripting wird meist unter Verwendung von so genannten Skript-Sprachen betrieben. Genauer beschrieben handelt es sich dabei um Programmiersprachen die das Erstellen von Skripts erm"oglichen. Skripts sind Programme die in einer Laufzeitumgebung interpretiert werden. Das heißt, dass die Laufzeitumgebung Befehle erkennt die Befehl für Befehl ausgef"uhrt werden.  Dies k"onnte analog hierzu nat"urlich auch von einem Menschen erledigt werden der jeden Befehl einzeln in die Kommandozeile eintippt. Da dies allerdings f"ur wiederkehrende Prozeduren sehr aufwendig und zeitraubend ist, gibt es Skripts die diese Vorg"ange automatisieren k"onnen. Scripting findet in zahlreichen verschiedenen Umgebungen Anwendung, wie Software Applikationen, Webseiten in einem Web-Browser, in der Kommandozeile eines Betriebssystems und auch in Embedded Systems. Skript-Sprachen werden auch oft als "'very high-level"' Programmiersprache bezeichnet, da sie sich auf einem hohen Abstraktionslevel befinden und meist f"ur die einfache Bedienung von bestimmten Komponenten verantwortlich sind.\\\\Mit dem Begriff Skript-Sprache wird ebenfalls oft auf die sogenannten dynamischen high-level Mehrzweck-Sprachen verwiesen. Unter diesen Begriff fallen beispielsweise Sprachen wie Perl, TCL und Python, wo ein Skript meist ein kleines Programm (bis zu wenigen tausend Zeilen Code) darstellt.\\\\Viele dieser Sprachen wurden urspr"unglich f"ur die Verwendung in spezifischen Umgebungen entwickelt und erst sp"ater als portable dom"anenspezifische oder Mehrzweck-Sprache konzipiert. Das Spektrum der Skript-Sprachen reicht von sehr kleinen und hoch dom"anenspezifischen Sprachen bis hin zu Mehrzweck-Programmiersprachen die f"urs Scripting verwendet werden.\\\\ Im Prinzip kann allerdings jede Sprache f"urs Scripting verwendet werden. Offiziell kann gesagt werden, dass es immer von der Verwendung der jeweiligen Sprache abh"angt und genauer wie die Sprache f"ur bestimmte Aufgaben eingesetzt wird. Deshalb ist es nicht ohne weiteres gekl"art welche Sprachen als Skript-Sprache angesehen werden k"onnen und welche nicht. Generell sind allerdings viele Sprachen nicht f"ur den Einsatz als Skript-Sprache ausgelegt und folglich auch sehr selten als solche in Verwendung. Typischerweise sind Skript-Sprachen so ausgelegt, dass diese eine relativ simple Syntax und Semantik besitzen. Als Beispiel ist es nicht g"angig die Programmiersprache Java als Skript-Sprache zu verwenden, da sie eine lange Syntax und restriktive Regeln, welche Klasse in welchen Dateien liegt, besitzt. Im Gegensatz dazu steht bspw. Python wo es einfach m"oglich ist einige Funktionen in einer Datei kurz zu definieren. Eine Skript-Sprache wird normalerweise aus Sourcecode zu Bytecode interpretiert. Skript-Sprachen sind im eigentlichen Sinne f"ur den Endnutzer eines Programms konzipiert, damit kleine Programme selbst entwickelt werden k"onnen, ohne die verschiedenen Datentypen und das Speichermanagement beachten zu m"ussen.
+\cite{scrip1} 
+\section{G"angige Skript-Sprachen}
 \subsection{Glue Languages}
-Eine "'glue language"' ist eine normalerweise interpretierte Skript-Sprache welche daf"ur designed und konzipiert wurde um "'glue code"' zu schreiben. Sie sind in erster Linie n"utzlich f"ur:
+Eine "'glue language"' ist eine normalerweise interpretierte Skript-Sprache welche daf"ur designet und konzipiert wurde um "'glue code"' zu schreiben - Code der Software Komponenten miteinander verbindet. Sie sind in erster Linie n"utzlich f"ur:
 \begin{itemize}
 \item eigene Befehle f"ur eine Kommandozeile
 \item kleinere Programme (als diese die besser in einer kompilierten Sprache entwickelt werden)
 \item "'Wrapper"' Programme f"ur Anwendungen, wie bspw. ein Batch-File, dass Dateien innerhalb eines Betriebssystems verschiebt oder bearbeitet
-\item Skripts die sich oft ändern
+\item Skripte die sich oft ändern
 \item schnell entwickelte Prototypen einer Softwarel"osung, die sp"ater in einer anderen, normalerweise kompilierten, Sprache umgesetzt werden
 \end{itemize}
 Glue Language Beispiele:
@@ -59,13 +63,60 @@ Glue Language Beispiele:
 \item REXX
 \item XSLT
 \end{itemize}
-
+\cite{scrip1} 
 \chapter{Scripting auf Routern}
+Beschreibt das automatisierte Ausf"uhren von bestimmten Konfigurationszeilen oder andere automatisierte Aufgaben. Diese k"onnen sowohl innerhalb des Betriebssystems des Routers selbst oder auch per externem Programm ausgef"uhrt werden. Oft gibt es ebenfalls die M"oglichkeit oben beschriebene standardisierte Skript-Sprachen zu verwenden, wie bspw. Tcl oder "ahnliches. Skripte werden f"ur gew"ohnlich zu fixen Zeiten, fortlaufend oder als Reaktion auf ein bestimmtes Ereignis ausgef"uhrt. Auch gibt es meist die M"oglichkeit Skripte zu schreiben, die vom Netzwerkadministrator manuell ausgef"uhrt werden, um wiederholende Abl"aufe einfach abrufen zu k"onnen. 
 \section{Nutzen}
-
+Wie bereits erw"ahnt dienen Skripte meist dazu um bestimmte Aubl"aufe zu automatisieren. Die Hauptvorteile liegen daher in der Arbeitsersparnis des Netzwerkadministrators, da dieser nicht jeden Befehl immer einzeln eingeben muss und auch in der schnellen Reaktionszeit nach bestimmten Ereignissen. Kein Netzwerkadministrator kann so schnell auf ein Ereignis reagieren wie der Router selbst. Ein einfaches Beispiel f"ur ein solches Ereignis w"are das unerwartete herunterfahren eines FastEthernet Ports, der anhand eines einfachen Skriptes automatisch wieder hochgefahren werden kann. 
 \section{M"oglichkeiten}
-	
-\section{Marktanalyse und Produkte}
-	
+\subsection{Expect}
+Expect ist eine Erweiterung zu Tcl, welche Interaktionen mit Programmen automatisieren kann. Vorraussetzung hierf"ur ist, dass ein Textterminal f"ur die Kommunikation mit dem Ger"at verwendet wird. Es wird f"ur die automatische Kontrolle von interaktiven Applikationen verwendet, wie telnet, ftp, passwd, fsck, rlogin, tip, ssh und andere. Urspr"unglich war Expect nur f"ur Unix Systeme verf"ugbar, ist aber bereits f"ur Microsoft Windows und andere Betriebssysteme verf"ugbar. F"ur die Kommunikation werden Pseudo-Terminals im Fall von Unix oder eine Konsolenemulation im Fall von Windows verwendet.\newpage
+Einfaches "'Hello World"' Beispiel:
+\lstset{language=Java, 
+   basicstyle=\small, 
+   keywordstyle=\color{black}, 
+   identifierstyle=, 
+   commentstyle=\color{darkgray}, 
+   stringstyle=\ttfamily, 
+   breaklines=true, 
+   numbers=left, 
+   numberstyle=\small, 
+   frame=single, 
+   backgroundcolor=\color{white} 
+}
+\begin{lstlisting}
+#!/usr/bin/expect
+expect "hello"
+send "world"
+\end{lstlisting}
+In diesem Beispiel wird in der Konsole auf den String "'Hello"' gewartet. Wenn der erwartete String erscheint, gibt Expect den String "'world"' zur"uck. \\\\Obwohl Expect eigentlich nicht prim"ar f"ur Router vorgesehen ist, kann es dennoch erfolgreich f"ur bestimmte Abl"aufe verwendet werden. Dies k"onnten z.B. Ereignisse sein die in der Kommandozeile vom Router ausgegeben werden. Wenn diese Zeilen erkannt werden schaltet sich das Skript ein und kann entsprechend der Konfiguration vorgehen. \cite{exp1}
+\subsection{Ciscoworks LAN Management Solution (LMS)}
+LMS ist ein Programm mit Management Funktionen, die die Konfiguration , Administration, Monitoring und Troubleshooting von Cisco Netzwerken erleichtert. LMS erlaubt dem Netzwerkadministrator das managen des Netzwerks "uber ein Browser basiertes Interface, das jederzeit und "uberall im Netzwerk abgerufen werden kann. Einmal installiert kann die Software durch Monitoring und Troubleshooting Dashboards schnellstm"oglich auf Fehler im Netzwerk aufmerksam machen, damit Netzwerkadministratoren diesen isoliere und beheben k"onnen. Dem Administrator steht auch ein Template Center zur Verf"ugung in dem Cisco validierte Designs und Links zu Router und Switch-Konfigurationen angeboten werden. \cite{cisc1}\\\\
+Auch wenn hier keine direkte Skript-Sprache im Hintergrund l"auft, erf"ullt diese Software trotzdem das was ein Skript auch k"onnen soll. Und zwar Vorg"ange automatisieren, auf Ereignisse im Netzwerk schnell reagieren und dem Netzwerkadministrator damit seine Arbeit zu erleichtern. 
+\subsection{Tcl}
+Tcl (Tool Command Language) ist eine m"achtige und einfach zu lernende dynamische Programmiersprache, passend f"ur eine gro"se Variation an Aufgaben. Sie kann bspw. f"ur Web- und Desktop-Applikationen eingesetzt werden, aber auch f"ur Netzwerk-, Administrations- und Testing-Aufgaben. Tcl ist Open-Source, cross-platform und stetig weiterentwickelnd. Ein Tcl-Script besteht aus einer Reihe von Befehlen. Jeder einzelne Befehl besteht seinerseits aus dem Befehlnamen, z.B. "'set"' und aus einer Reihe von String-Argumenten. Die Anzahl und Art der Argumente ist von Befehl zu Befehl unterschiedlich. \cite{tcl1} Cisco IOS besitzt f"ur TCL-Skripte eine eigene Shell - die Cisco IOS Tcl Shell. Sie wurde designet um Benutzern zu erm"oglichen Tcl Befehle, direkt von der Cisco IOS prompt auszuf"uhren. \\\\
+"'Several methods have been developed for creating and running Tcl scripts within Cisco IOS software. A Tcl shell can be enabled, and Tcl commands can be entered line by line. After Tcl commands are entered, they are sent to a Tcl interpreter. If the commands are recognized as valid Tcl commands, the commands are executed and the results are sent to the TTY device. If a command is not a recognized Tcl command, it is sent to the Cisco IOS CLI parser. If the command is not a Tcl or Cisco IOS command, two error messages are displayed. A predefined Tcl script can be created outside of Cisco IOS software, transferred to flash or disk memory, and run within Cisco IOS software. It is also possible to create a Tcl script and precompile the code before running it under Cisco IOS software."'\cite{tcl2}
+\subsection{Cisco IOS EEM}
+Der Embedded Event Manager ist im Auslieferungszustand (ab IOS Version 12.2SX) in jedem Cisco IOS Router und Switch-Betriebssystem vollst"andig integriert. Es kann dazu verwendet werden um Prozesse zu automatisieren und das Verhalten des Betriebssystems in bestimmten F"allen zu beeinflussen. Dazu wird vom EEM eine eigene Skript-Sprache bereitgestellt, mit deren Hilfe Skripts erstellt werden k"onnen. Diese Skripte werden in der Routerkonfiguration abgelegt und sind auch dort als Konfigurationszeilen einseh- und einspielbar. Prinzipiell kann jede denkbare Form von Skript die auf einem Router sinnvoll ist, in der Skript-Sprache von Cisco EEM umgesetzt werden.\cite{cisc2} Zur Veranschaulichung ein Beispiel:
+\begin{lstlisting}
+event manager applet tech                                                 	 
+ event none                                                         	 
+ action 1.0 cli command "enable"                                          	 
+ action 1.1 cli command "sh fl | i tech1"
+ action 1.04  info type routername                                   	 
+ action 1.2 if $_cli_result eq $_info_routername#                                    	 
+ action 1.3 cli command "sh tech | redirect flash:/tech1.txt"              	 
+ action 1.31 syslog msg "tech-support 1 created"                                  	 
+ action 1.4 cli command "delete /force tech2.txt"                         	 
+ action 1.5 else                                                          	 
+ action 2.0 cli command "sh fl | i tech2"                                 	 
+ action 2.1 if $_cli_result eq $_info_routername#                                   	 
+ action 2.2 cli command "sh tech | redirect flash:/tech2.txt"             	 
+ action 2.21 syslog msg "tech-support 2 created"                                 	 
+ action 2.3 cli command "delete /force tech3.txt"                        	 
+ action 2.4 end
+ action 2.5 end
+\end{lstlisting}
+Hier wird ein Beispielskript gezeigt, das die Aufgabe hat tech-supports im flash des Routers abzuspeichern. Es speichert immer zwei tech-supports ab. Wenn ein dritter tech-support gespeichert werden soll wird der älteste gel"oscht. Das Erstellen eines tech-supports stellt in vielerlei Hinsicht eine sinnvolle Logging-M"oglichkeit dar, da s"amtliche Informationen einschlie"slich Hardware und Konfiguration darin enthalten sind. Da in diesem Fall "'event none"' eingetrage ist muss das Skript von Hand vom Netzwerkadmin ausgef"uhrt werden. Stattdessen kann dieses auch bspw. mit einer Uhrzeit versehen werden, sodass das Skript immer zu einer bestimmten Uhrzeit ausgef"uhrt wird. Dies und Informationen zu den einzelnen Befehlen, k"onnen der Cisco EEM Dokumentation und den Tutorials zu EEM auf der Cisco-Website entnommen werden. 
 \bibliography{ref}
 \end{document}
