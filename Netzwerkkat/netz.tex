@@ -1,0 +1,57 @@
+\documentclass[a4paper,14pt]{scrreprt}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[table]{xcolor}% http://ctan.org/pkg/xcolor
+\usepackage{tabu}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{hyperref}\usepackage{geometry}
+\geometry{verbose,a4paper,tmargin=22mm,bmargin=45mm,lmargin=30mm,rmargin=30mm}
+
+\begin{document}
+
+
+%\titlehead{Kopf} %Optionale Kopfzeile
+\author{Alexander Rieppel} %Zwei Autoren
+\title{Netzwerkkategorisierung} %Titel/Thema
+\subject{NWSY} %Fach
+\subtitle{Ausarbeitung} %Genaueres Thema, Optional
+\date{\today} %Datum
+\publishers{5AHITT} %Klasse
+
+\maketitle
+\tableofcontents
+\bibliographystyle{alphadin} 
+
+\chapter{Einf"uhrung}
+Sowohl im Internet als auch zahlreichen kleineren Netzwerken spielen viele verschiedene Komponenten zusammen und kommunizieren miteinander. Um in dieses unordentliche bunte Spektrum an Netzwerken eine gewisse Ordnung zu bringen existieren Netzwerkkategorien. Jedes Netzwerk hat für sich charakteristische Eigenschaften die es von andersartigen Netzwerken unterscheidet und deshalb einer bestimmten Netzwerkkategorie zugeordnet werden kann. Im Folgenden werden die verschiedensten Netzwerkkategorien und auch Unterkategorien beschrieben und auch Thematiken die in enger Verbindung mit dieser Kategorie stehen. 
+\chapter{Personal Area Network (PAN)}
+Unter einem Personal Area Network (PAN) versteht man ein Netz, das von Kleingeräten wie PDAs oder Mobiltelefonen ad hoc auf- und abgebaut werden kann. PANs können daher mittels verschiedener drahtgebundener Übertragungstechniken wie USB oder FireWire oder auch mittels drahtloser Techniken, wie IrDA, Bluetooth oder WLAN aufgebaut werden (Wireless PAN oder WPAN). Die Reichweite beträgt hierbei gewöhnlich nur wenige Meter. PANs können genutzt werden, um mit den Geräten untereinander zu kommunizieren, sie können aber auch dazu dienen, mittels Uplink mit einem größeren Netz (z.B. LAN) zu kommunizieren. 
+\section{Piconet}
+Ein Piconet ist ein Personal Area Network von Endgeräten, die sich über Bluetooth verbunden haben. Ein Piconet entsteht, wenn mindestens zwei Geräte wie z. B. ein Notebook und ein Mobiltelefon sich verbinden. Zwischen diesen Geräten ist eine Punkt-zu-Punkt- und Punkt-zu-Mehrpunkt-Verbindung möglich, bei der ein Gerät als „Master“ und die anderen als „Slave“ agieren. Die Geräte werden durch die AMA (ActiveMemberAddress, 3 Bit) identifiziert. Daneben können teilnehmende Geräte auch in einem passiven Modus sein, entweder „Standby“ oder „Parked“, und werden anhand der PMA (PassiveMemberAddress, 8 Bit) identifiziert. Dank der 8-Bit-Adresse können bis zu ca. 200 (theoretisch 28 = 256) Bluetooth-Geräte im Standby-Modus verweilen. Bei der Zusammenfassung von mehreren Piconetzen spricht man von einem Scatternetz.
+\chapter{Local Area Network (LAN)}
+Ein Local Area Network  (lokales Netzwerk oder LAN) ist eine Netzwerkkategorie, die die Ausdehnung von Personal Area Networks übertrifft, aber in irgendeiner Weise im kleinen Rahmen von anderen Netzwerken abgeschottet ist. Ein LAN ist dabei in seiner Ausdehnung ohne Zusatzmaßnahmen auf 500 Meter beschränkt und wird in der Regel z.B. in Heimnetzen oder kleinen Unternehmen eingesetzt.
+\section{Verkabelung und Komponenten}
+Ein lokales Netz kann technisch unterschiedlich aufgebaut werden. Typischerweise erfolgt die Verkabelung eines LANs heutzutage als strukturierte Verkabelung. Ethernet ist heute der am weitesten verbreitete Standard. Dabei erfolgt die Übertragung mittlerweile meist elektrisch über Twisted-Pair-Kabel (CAT5 oder höher) oder optisch über Plastikfaserkabel und Glasfaserkabel. Aktuelles Ethernet deckt Datenübertragungsraten von 10 Mbit/s bis 10 Gbit/s ab (entspricht maximal 1,25 GByte/s Datendurchsatz). Bei der heute am häufigsten verwendeten, Kupfer-basierten Twisted-Pair-Verkabelung beträgt die Netzausdehnung in der Regel maximal hundert Meter. Mit Glasfasern auf Multimodebasis dreihundert Meter und auf Monomodebasis bis zu vierzig Kilometer. Fast-Ethernet 100BaseTX ist innerhalb von Ethernet noch immer die am weitesten verbreitete Technik, wobei bei Neuverkabelungen das Gigabit-Ethernet immer häufiger verwendet wird. 100-Gigabit-Ethernet befindet sich in der Entwicklung und bringt zahlreiche Änderungen auch bei den Kabellängen und -typen. Welche Standards kommerziell erfolgreich sein werden, muss erst noch abgewartet werden. Arbeitsplätze werden bei vielen Installationen oft mit Fast-Ethernet (100BaseTX) oder Gigabit-Ethernet (1000BaseTX) angesteuert.
+\subsection{Hub}
+Ein Hub ist ein Verteilerknoten in einem Netzwerk, der mehrere Repeater enthält. Der Hub arbeitet nach einem ziemlich einfachen Prinzip. Er empfängt von einem Port ein Datenpaket und sendet es an alle Ports weiter. Bekommt der Hub zwei Datenpakete gleichzeitig, so kommt es zu einer Kollision. Eines der Datenpakete geht dabei verloren und muss erneut gesendet werden.\\\\Hubs werden allerdings aufgrund der hohen Verbreitung von Switches und der eingeschränkten Funktionalität nur mehr in speziellen Fällen für die Verkabelung in einem LAN verwendet.
+\subsection{Switch}
+Ein Switch fasst mehrere Bridges in einem Bauteil zusammen. Es verfügt im Gegensatz zu einem Hub über Logikfunktionen, um Daten zu filtern. Ein Switch sendet nach Möglichkeit empfangene Pakete nur an eine MAC-Adresse. Die Leitungen der übrigen Teilnehmer werden nicht belastet. Ein solches Netz arbeitet kollisionsfrei und alle Kanäle erreichen die maximale Datenübertragungsrate. \\\\Switches werden aufgrund der Vorteile gegenüber HUBs am häufigsten in einem Lan eingesetzt.
+\subsection{Router}
+Ein Router ermöglicht es, mehrere Netzwerke mit unterschiedlichen Protokollen und Architekturen miteinander zu verbinden. Er kann im Gegensatz zu einem Switch mit IP-Adressen arbeiten. Einen Router findet man häufig an den Außengrenzen eines Netzwerkes, um es mit dem Internet oder einem anderen Netzwerk zu verbinden und stellt daher meist die Grenze eines LANs dar.
+\subsection{Allgemein}
+Die Hauptelemente eines lokalen Netzes waren früher Repeater und Hubs, zum Teil auch Router und Bridges. Bei heutigen Topologien hingegen findet man praktisch nur noch Switches und Router. Da herkömmliche Router heute kaum noch innerhalb eines LANs angeordnet werden und stattdessen zumeist Internet-Gateway-Router verwendet werden, stellt ein lokales Netz oft genau eine gemeinsame Broadcast-Domäne dar, also den Bereich eines Rechnernetzes, in dem alle angeschlossenen Geräte mit ihrer MAC-Adresse direkt miteinander kommunizieren können.
+\section{Wireless LAN (WLAN)}
+Drahtlose lokale Netze nennt man Wireless LAN (WLAN). Sie werden meist über einen Standard aus IEEE 802.11 realisiert, die zum kabelgebundenen Ethernet weitgehend kompatibel sind. Hier gibt es einige Verschlüsselungstechniken die zu beachten sind. Früher wurde mit den mittlerweile als unsicher eingestuften Standards WEP und WPA gearbeitet. Der neuere WPA2-Standard gilt zurzeit noch als sicher, da WPA2 einen deutlich besseren Verschlüsselungsmechanismus als WPA, nämlich AES (Advanced Encryption Standard) verwendet. Als wesentlich sicherer gilt die Kombination von beliebiger WLAN-Technologie über IPsec.
+\chapter{Metropolitan Area Network (MAN)}
+\section{Metro-Ethernet (MEN)}
+
+\chapter{Wide Area Network (WAN)}
+Ein Wide Area Network ist ein Netzwerk, das sich im Unterschied zu einem LAN oder MAN über einen sehr großen geografischen Bereich erstreckt.\\\\WANs erstrecken sich über Länder oder sogar Kontinente und die Anzahl der angeschlossenen Rechner ist theoretisch unbegrenzt. Sie werden benutzt, um verschiedene LANs oder MANs, aber auch einzelne Rechner miteinander zu vernetzen. Bestimmte WANs gehören zu einzelnen Organisationen und werden ausschließlich von diesen genutzt. Andere WANs werden durch Internetdienstanbieter errichtet oder erweitert, um einen Zugang zum Internet anbieten zu können.\\\\Ein WAN arbeitet auf der Bitübertragungsschicht und der Sicherungsschicht des OSI-Referenzmodells. Wegen der großen Anzahl der angeschlossenen Rechner ist Broadcasting an alle Rechner nicht effizient. Deshalb ist ein einheitliches Adressierungsschema notwendig und es muss außerdem Zwischensysteme (wie Router und Switches) geben, die gesendete Datenpakete an die richtige Adresse weiterleiten. \\\\Zu den WAN-Technologien gehören IP/MPLS und Ethernet, aber auch Technologien wie Plesiochrone Digitale Hierarchie (PDH), Synchrone Digitale Hierarchie (SDH).
+\section{WAN-Optimierung}
+\chapter{Global Area Network (GAN)}
+\section{Broadband Global Area Network (BGAN)}
+\chapter{Body Area Network (BAN)}
+
+\end{document}
