@@ -92,10 +92,29 @@ send "world"
 In diesem Beispiel wird in der Konsole auf den String "'Hello"' gewartet. Wenn der erwartete String erscheint, gibt Expect den String "'world"' zur"uck. \\\\Obwohl Expect eigentlich nicht prim"ar f"ur Router vorgesehen ist, kann es dennoch erfolgreich f"ur bestimmte Abl"aufe verwendet werden. Dies k"onnten z.B. Ereignisse sein die in der Kommandozeile vom Router ausgegeben werden. Wenn diese Zeilen erkannt werden schaltet sich das Skript ein und kann entsprechend der Konfiguration vorgehen. \cite{exp1}
 \subsection{Ciscoworks LAN Management Solution (LMS)}
 LMS ist ein Programm mit Management Funktionen, die die Konfiguration , Administration, Monitoring und Troubleshooting von Cisco Netzwerken erleichtert. LMS erlaubt dem Netzwerkadministrator das managen des Netzwerks "uber ein Browser basiertes Interface, das jederzeit und "uberall im Netzwerk abgerufen werden kann. Einmal installiert kann die Software durch Monitoring und Troubleshooting Dashboards schnellstm"oglich auf Fehler im Netzwerk aufmerksam machen, damit Netzwerkadministratoren diesen isoliere und beheben k"onnen. Dem Administrator steht auch ein Template Center zur Verf"ugung in dem Cisco validierte Designs und Links zu Router und Switch-Konfigurationen angeboten werden. \cite{cisc1}\\\\
-Auch wenn hier keine direkte Skript-Sprache im Hintergrund l"auft, erf"ullt diese Software trotzdem das was ein Skript auch k"onnen soll. Und zwar Vorg"ange automatisieren, auf Ereignisse im Netzwerk schnell reagieren und dem Netzwerkadministrator damit seine Arbeit zu erleichtern. 
+Auch wenn hier keine direkte Skript-Sprache im Hintergrund l"auft, erf"ullt diese Software trotzdem das was ein Skript auch k"onnen soll. Und zwar Vorg"ange automatisieren, auf Ereignisse im Netzwerk schnell reagieren und dem Netzwerkadministrator damit seine Arbeit zu erleichtern.
 \subsection{Tcl}
 Tcl (Tool Command Language) ist eine m"achtige und einfach zu lernende dynamische Programmiersprache, passend f"ur eine gro"se Variation an Aufgaben. Sie kann bspw. f"ur Web- und Desktop-Applikationen eingesetzt werden, aber auch f"ur Netzwerk-, Administrations- und Testing-Aufgaben. Tcl ist Open-Source, cross-platform und stetig weiterentwickelnd. Ein Tcl-Script besteht aus einer Reihe von Befehlen. Jeder einzelne Befehl besteht seinerseits aus dem Befehlnamen, z.B. "'set"' und aus einer Reihe von String-Argumenten. Die Anzahl und Art der Argumente ist von Befehl zu Befehl unterschiedlich. \cite{tcl1} Cisco IOS besitzt f"ur TCL-Skripte eine eigene Shell - die Cisco IOS Tcl Shell. Sie wurde designet um Benutzern zu erm"oglichen Tcl Befehle, direkt von der Cisco IOS prompt auszuf"uhren. \\\\
 "'Several methods have been developed for creating and running Tcl scripts within Cisco IOS software. A Tcl shell can be enabled, and Tcl commands can be entered line by line. After Tcl commands are entered, they are sent to a Tcl interpreter. If the commands are recognized as valid Tcl commands, the commands are executed and the results are sent to the TTY device. If a command is not a recognized Tcl command, it is sent to the Cisco IOS CLI parser. If the command is not a Tcl or Cisco IOS command, two error messages are displayed. A predefined Tcl script can be created outside of Cisco IOS software, transferred to flash or disk memory, and run within Cisco IOS software. It is also possible to create a Tcl script and precompile the code before running it under Cisco IOS software."'\cite{tcl2}
+\begin{lstlisting}
+tclsh
+proc get_bri {} {
+    set check ""
+    set int_out [exec "show interfaces"]
+    foreach int [regexp -all -line -inline "(^BRI\[0-9]/\[0-9])" $int_out] {
+        if {![string equal $check $int]} {
+            if {[info exists bri_out]} {
+                append bri_out "," $int
+             } else {
+                 set bri_out $int
+             }
+             set check $int
+        }
+    }
+    return $bri_out
+}
+\end{lstlisting}
+Obiges Beispiel zeigt ein, auf einem Router ausführbares Tcl-Skript, welches den Befehl "'show interfaces"' auf einen bestimmten Output hin filtert. In diesem Fall handelt es sich um einen Filter der ausschließlich BRI Interfaces auf dem Router anzeigt.
 \subsection{Cisco IOS EEM}
 Der Embedded Event Manager ist im Auslieferungszustand (ab IOS Version 12.2SX) in jedem Cisco IOS Router und Switch-Betriebssystem vollst"andig integriert. Es kann dazu verwendet werden um Prozesse zu automatisieren und das Verhalten des Betriebssystems in bestimmten F"allen zu beeinflussen. Dazu wird vom EEM eine eigene Skript-Sprache bereitgestellt, mit deren Hilfe Skripts erstellt werden k"onnen. Diese Skripte werden in der Routerkonfiguration abgelegt und sind auch dort als Konfigurationszeilen einseh- und einspielbar. Prinzipiell kann jede denkbare Form von Skript die auf einem Router sinnvoll ist, in der Skript-Sprache von Cisco EEM umgesetzt werden.\cite{cisc2} Zur Veranschaulichung ein Beispiel:
 \begin{lstlisting}
@@ -118,5 +137,7 @@ event manager applet tech
  action 2.5 end
 \end{lstlisting}
 Hier wird ein Beispielskript gezeigt, das die Aufgabe hat tech-supports im flash des Routers abzuspeichern. Es speichert immer zwei tech-supports ab. Wenn ein dritter tech-support gespeichert werden soll wird der älteste gel"oscht. Das Erstellen eines tech-supports stellt in vielerlei Hinsicht eine sinnvolle Logging-M"oglichkeit dar, da s"amtliche Informationen einschlie"slich Hardware und Konfiguration darin enthalten sind. Da in diesem Fall "'event none"' eingetrage ist muss das Skript von Hand vom Netzwerkadmin ausgef"uhrt werden. Stattdessen kann dieses auch bspw. mit einer Uhrzeit versehen werden, sodass das Skript immer zu einer bestimmten Uhrzeit ausgef"uhrt wird. Dies und Informationen zu den einzelnen Befehlen, k"onnen der Cisco EEM Dokumentation und den Tutorials zu EEM auf der Cisco-Website entnommen werden. 
+\subsection{SNMP}
+SNMP oder auch Simple Network Management Protocol ist ein von der IEFT entwickeltes Netzwerkprotokoll welches zur Überwachung und Steuerung von Netzwerkkomponenten dient. Gedacht ist dies so, dass von einer zentralen Station aus auf die Netzwerkkomponenten zugegriffen wird und dann Änderungen über dieses Protokoll möglich sind. Wenn man sich nun auf die Cisco Seite beschränkt ist es bspw. möglich zuvor erstellte Konfigurationen via FTP oder TFTP auf einen Router oder Switch über SNMP einzuspielen. Allerdings ist es ebenfalls möglich ganze Konfigurationsschritte mittels SNMP (über walk, set, get, wobei set hierbei fürs ändern zuständig ist) durchzuführen. Hierzu kann von der zentralen Konfigurationsstelle wiederum ein Skript ausgeführt werden welche alle Konfigurationsschritte über SNMP automatisiert vornimmt. Unter folgendem Link befindet sich ein Beispiel zur Konfiguration eines VLANs auf einem Cisco Switch.\\\\ \hyperref[Link im Literaturverzeichnis]{http://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/45080-vlans.html\#topic1}\cite{snmp}
 \bibliography{ref}
 \end{document}
