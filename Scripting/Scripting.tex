@@ -117,6 +117,7 @@ proc get_bri {} {
 Obiges Beispiel zeigt ein, auf einem Router ausführbares Tcl-Skript, welches den Befehl "'show interfaces"' auf einen bestimmten Output hin filtert. In diesem Fall handelt es sich um einen Filter der ausschließlich BRI Interfaces auf dem Router anzeigt.
 \subsection{Cisco IOS EEM}
 Der Embedded Event Manager ist im Auslieferungszustand (ab IOS Version 12.2SX) in jedem Cisco IOS Router und Switch-Betriebssystem vollst"andig integriert. Es kann dazu verwendet werden um Prozesse zu automatisieren und das Verhalten des Betriebssystems in bestimmten F"allen zu beeinflussen. Dazu wird vom EEM eine eigene Skript-Sprache bereitgestellt, mit deren Hilfe Skripts erstellt werden k"onnen. Diese Skripte werden in der Routerkonfiguration abgelegt und sind auch dort als Konfigurationszeilen einseh- und einspielbar. Prinzipiell kann jede denkbare Form von Skript die auf einem Router sinnvoll ist, in der Skript-Sprache von Cisco EEM umgesetzt werden.\cite{cisc2} Zur Veranschaulichung ein Beispiel:
+\newpage
 \begin{lstlisting}
 event manager applet tech                                                 	 
  event none                                                         	 
